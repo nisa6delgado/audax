@@ -73,9 +73,24 @@ export class ClosingStrategyPage implements OnInit {
       datasets: [
         {
           label: '2021',
-          data: [11, 10, 9, 10, 11, 11.5, 11, 9, 8.5, 8, 8.5, 10],
-          backgroundColor: 'background: rgba(217, 217, 217, 1)',
-          fill: 'background: rgba(217, 217, 217, 1)',
+          data: [0, 0, 0, 0, 0, 5, 5, 4, 4, 3, 3, 0],
+          backgroundColor: 'rgba(202, 222, 160, 1)',
+          borderColor: 'rgba(202, 222, 160, 1)',
+          fill: true,
+        },
+        {
+          label: '2022',
+          data: [0, 0, 0, 0, 0, 6, 6, 5, 5, 4, 4, 0],
+          backgroundColor: 'rgba(206, 206, 206, 1)',
+          borderColor: 'rgba(206, 206, 206, 1)',
+          fill: true,
+        },
+        {
+          label: '2023',
+          data: [0, 0, 0, 0, 0, 7, 7, 6, 6, 5, 5, 0],
+          backgroundColor: 'rgba(255, 203, 142, 1)',
+          borderColor: 'rgba(255, 203, 142, 1)',
+          fill: true,
         },
       ],
     };
@@ -87,8 +102,8 @@ export class ClosingStrategyPage implements OnInit {
         plugins: {
           legend: {
             display: true,
-            align: 'center',
-            position: 'bottom',
+            align: 'end',
+            position: 'top',
           },
         },
         scales: {
