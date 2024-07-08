@@ -1,0 +1,92 @@
+<ion-content [fullscreen]="true">
+  <div class="row px-5 mx-5 pt-5 mt-5">
+    <div class="col-3 offset-9 mt-5">
+      <div class="card mt-5">
+        <div class="card-body">
+          <div class="text-center">
+            <img src="/assets/img/logo.png" alt="logo" class="logo" />
+          </div>
+
+          <div class="mt-5">
+            <div class="cif-nit-input-wrapper">
+              <input
+                class="top-radius"
+                require
+                type="text"
+                autocomplete="off"
+                placeholder="CIF/NIF"
+              />
+            </div>
+
+            <div class="email-input-wrapper">
+              <input
+                require
+                type="email"
+                autocomplete="off"
+                placeholder="Email"
+              />
+            </div>
+
+            <div class="account-input-wrapper">
+              <input
+                require
+                type="number"
+                autocomplete="off"
+                placeholder="Cuenta corriente (4 últimos digitos)"
+              />
+            </div>
+
+            <div class="account-input-wrapper">
+              <input
+                class="bottom-radius"
+                require
+                type="number"
+                autocomplete="off"
+                placeholder="Datos factura"
+              />
+            </div>
+
+            <button class="btn-access">Registrar</button>
+          </div>
+
+          <div>
+            <a class="auth-link" href="/recovery-password">¿Has olvidado la clave de acceso?</a>
+            <a class="auth-link" href="/login">¿Ya tienes una cuenta? ¡Iniciar sesion!</a>
+          </div>
+
+          <div class="social text-center mt-5">
+            <a href="">
+              <img
+                class="img-social"
+                src="/assets/img/instagram.png"
+                alt="instagram"
+              />
+            </a>
+
+            <a href="">
+              <img
+                class="img-social"
+                src="/assets/img/facebook.png"
+                alt="facebook"
+              />
+            </a>
+
+            <a href="">
+              <img class="img-social" src="/assets/img/x.png" alt="x" />
+            </a>
+
+            <a href="">
+              <img
+                class="img-social"
+                src="/assets/img/linkdin.png"
+                alt="linkdin"
+              />
+            </a>
+          </div>
+
+          <div class="footer text-center">© 2023 Audax Renovables</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

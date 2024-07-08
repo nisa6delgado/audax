@@ -1,0 +1,273 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  min-width: 130px !important;
+  border: none !important;
+  /* 130px */
+  width: var(--sidebar-max-width) !important;
+  --background: #f9f8f5 !important;
+  ion-content {
+    --background: #f9f8f5 !important;
+
+    ion-list {
+      margin-left: 10px;
+    }
+
+    ion-list-header {
+      --background: #f9f8f5 !important;
+      --color: #808080 !important;
+    }
+
+    ion-item {
+      --background: #f9f8f5 !important;
+      --background-hover: #808080 !important;
+      --background-hover-opacity: 1;
+      --color-hover: #f9f8f5 !important;
+      --color: #808080 !important;
+      width: 237px;
+      height: 38px;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      ion-icon {
+        padding-right: 10px !important;
+      }
+    }
+
+    ion-item:hover {
+      width: 237px !important;
+    }
+  }
+}
+
+.sidebar-open {
+  min-width: 130px !important;
+  border: none !important;
+  transition: all 0.3s ease-in-out;
+  /* 130px */
+  width: var(--sidebar-max-width) !important;
+  --background: #f9f8f5 !important;
+  ion-content {
+    --background: #f9f8f5 !important;
+
+    ion-list {
+      margin-left: 10px;
+    }
+
+    ion-list-header {
+      --background: #f9f8f5 !important;
+      --color: #808080 !important;
+    }
+
+    ion-item {
+      --background: #f9f8f5 !important;
+      --background-hover: #808080 !important;
+      --background-hover-opacity: 1;
+      --color-hover: #f9f8f5 !important;
+      --color: #808080 !important;
+      width: 237px;
+      height: 38px;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      ion-icon {
+        padding-right: 10px !important;
+      }
+    }
+
+    ion-item:hover {
+      width: 237px !important;
+    }
+  }
+}
+
+.sidebar-close {
+  min-width: 130px !important;
+  border: none !important;
+  transition: all 0.3s ease-in;
+  /* 130px */
+  width: var(--sidebar-min-width) !important;
+  --background: #f9f8f5 !important;
+  ion-content {
+    --background: #f9f8f5 !important;
+
+    ion-list {
+      margin-left: 10px;
+    }
+
+    ion-list-header {
+      --background: #f9f8f5 !important;
+      --color: #808080 !important;
+    }
+
+    ion-item {
+      --background: #f9f8f5 !important;
+      --background-hover: #4994ec !important;
+      --background-hover-opacity: 1;
+      --color-hover: #f9f8f5 !important;
+      --color: #808080 !important;
+      width: 45px;
+      height: 38px;
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      ion-icon {
+        padding-right: 10px !important;
+      }
+    }
+
+    ion-item:hover {
+      width: 45px !important;
+    }
+  }
+}
+
+.main-content {
+  width: var(--main-content-width);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.lato {
+  font-family: "Lato";
+}
+
+.burger-button {
+  width: 38px;
+  height: 38px;
+  margin-top: 17px;
+  margin-left: 21px;
+  --border-radius: 43px;
+  --background: #ebebeb !important;
+  --box-shadow: none;
+  .burger {
+    font-size: 38px;
+    color: #808080;
+  }
+}
+
+.logo {
+  margin-top: 10px;
+  width: 159px;
+  height: 60px;
+}
+
+.ion-list-header {
+  display: block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+ion-list-header {
+  color: #b3b3b3;
+  font-family: "Lato";
+  text-transform: uppercase;
+}
+
+.icons-apps {
+  margin-bottom: 20px !important;
+}
+
+.right-menu {
+  width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-date {
+  display: block;
+  color: #a4a4a4;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Lato";
+}
+
+.user {
+  margin-top: 60px;
+  margin-left: 20px;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.user-dni {
+  font-size: 16px;
+}
+
+.info {
+  margin-top: 250px;
+}
+
+.download-text {
+  margin-top: 50px;
+  color: #53555b;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.info > span {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: #53555b;
+  font-family: "Lato";
+}
+
+.new-title {
+  font-size: 14px;
+  font-weight: 400;
+  color: #53555b;
+  font-family: "Lato";
+}
+
+.fa-user-circle {
+  color: #4195ee;
+  font-size: 50px;
+}
+
+.last-news-title {
+  font-family: "Lato";
+  font-size: 24px;
+}
+
+.last-news-link {
+  font-size: 16px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  ion-label {
+    margin-left: 10px;
+    font-size: 13px;
+  }
+  i {
+    font-size: 13px;
+  }
+}
+.menu-item:hover {
+  border-radius: 40px;
+}
+
+.new-image {
+  width: 80px;
+  height: 80px;
+}
+
+.text-menu-collapse {
+  display: none !important;
+}

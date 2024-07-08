@@ -1,0 +1,7 @@
+{
+  "name": "audax",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

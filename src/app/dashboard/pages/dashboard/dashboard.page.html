@@ -1,0 +1,161 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card class="card-contract">
+    <ion-card-header>
+      <ion-card-title>Contratos</ion-card-title>
+    </ion-card-header>
+    <ion-grid class="gridContract">
+      <ion-row>
+        <ion-col
+          style="
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e0e0e0;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              align-items: center;
+            "
+          >
+            <ion-searchbar
+              placeholder="Buscar por dirección, alias o CUPS"
+            ></ion-searchbar>
+            <ion-card class="ion-card-grey">
+              <ion-card-header>
+                <ion-card-title>
+                  <div><ion-icon name="bulb-outline"></ion-icon> LUZ</div>
+                  <ion-chip>Nivel 1</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="ion-card-orange">
+              <ion-card-header>
+                <ion-card-title>
+                  <div><ion-icon name="flame-outline"></ion-icon> GAS</div>
+                  <ion-chip>Nivel 2</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+          </div>
+
+          <a href="#" class="links-contract">Asignar alias</a>
+        </ion-col>
+
+        <ion-col
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid #e0e0e0;
+          "
+        >
+          <div style="display: flex; flex-direction: column">
+            <ion-label class="title-card-2">Tarifa contratada</ion-label>
+            <ion-label class="rl2-text">RL2</ion-label>
+
+            <ion-label class="title-card-2 mt-10">Tamaño (kWh)</ion-label>
+            <ion-label class="subtext">5.000 < C ≤ 15.000</ion-label>
+          </div>
+
+          <a href="#" class="links-contract">Modificar la tarifa</a>
+        </ion-col>
+
+        <ion-col
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          "
+        >
+          <div style="display: flex; flex-direction: column">
+            <ion-label class="title-card-2">Última factura</ion-label>
+            <ion-label class="rl2-text">150,27€</ion-label>
+
+            <ion-label class="date-title mt-10">FECHA FACTURA</ion-label>
+            <ion-label class="date">6 de marzo del 2023</ion-label>
+
+            <ion-label class="date-title">PERÍODO</ion-label>
+            <ion-label class="date">Del 25/02/2023 al 28/02/2023</ion-label>
+
+            <ion-button class="btn-pdf">Descargar PDF</ion-button>
+          </div>
+          <a href="#" class="links-contract">Ver todas las facturas</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="card-evolution">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="font-24">Evolución</div>
+              <div class="font-9">Últimos 12 meses</div>
+            </ion-col>
+
+            <ion-col>
+              <ion-button>Factura (€)</ion-button>
+              <ion-button class="disabled">Consumo total (kWh)</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <canvas id="chart">{{ chart }}</canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card-publicity">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="2">
+          <img
+            src="/assets/img/audax-icon.png"
+            alt=""
+            width="168"
+            height="179"
+          />
+        </ion-col>
+        <ion-col>
+          <ion-label class="col-2">
+            Cargador de vehículo eléctrico,
+            <br />te instalamos tu
+            <br />
+            punto de recarga.
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="col-3">
+            En Audax Renovables realizamos la instalación de
+            <br />
+            cargadores de vehículos, tanto para residencial,
+            <br />
+            comunidades de propietarios, empresas o vías
+            <br />públicas.
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

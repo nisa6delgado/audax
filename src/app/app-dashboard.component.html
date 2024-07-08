@@ -1,0 +1,151 @@
+<ion-split-pane when="xs" contentId="main">
+  <ion-menu
+    contentId="main"
+    class="sidebar {{ !showMenu ? 'sidebar-open' : 'sidebar-close' }}"
+  >
+    <ion-content class="ion-padding">
+      <ion-button class="burger-button" (click)="collapse()">
+        <ion-icon name="menu-outline" class="burger"></ion-icon>
+      </ion-button>
+      <ion-list id="inbox-list">
+        <ion-list-header class="ion-list-header">
+          <ion-label>
+            <img src="/assets/img/logo.png" alt="logo" class="logo" />
+          </ion-label>
+        </ion-list-header>
+
+        <ion-menu-toggle
+          auto-hide="false"
+          *ngFor="let p of appPages; let i = index"
+        >
+          <ion-item
+            routerDirection="root"
+            [routerLink]="[p.url]"
+            lines="none"
+            detail="false"
+            routerLinkActive="selected"
+            class="menu-item"
+          >
+            <i [class]="p.icon + ' me-2'"></i>
+            <ion-label class="lato {{ showMenu && 'text-menu-collapse' }}">{{
+              p.title
+            }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-list id="labels-list">
+        <ion-list-header>Cambio de datos</ion-list-header>
+
+        <ion-menu-toggle auto-hide="false" *ngFor="let item of changes">
+          <ion-item
+            lines="none"
+            [routerLink]="[item.url]"
+            routerLinkActive="selected"
+            class="menu-item"
+          >
+            <i [class]="item.icon + ' me-2'"></i>
+            <ion-label class="lato {{ showMenu && 'text-menu-collapse' }}">{{
+              item.title
+            }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-grid class="user">
+        <ion-row>
+          <ion-col size="3">
+            <i class="fa fa-user-circle"></i>
+          </ion-col>
+
+          <ion-col>
+            <div class="lato user-name {{ showMenu && 'text-menu-collapse' }}">
+              {{ user.name }}
+            </div>
+
+            <div class="lato user-dni {{ showMenu && 'text-menu-collapse' }}">
+              {{ user.dni }}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main">
+    <ion-content class="ion-padding">
+      <ion-router-outlet></ion-router-outlet>
+    </ion-content>
+  </div>
+
+  <ion-list class="right-menu">
+    <div>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9" class="last-news-title">Últimas noticias</ion-col>
+
+            <ion-col class="last-news-link">
+              <a href="">Ver todas</a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item *ngFor="let new of news" class="news">
+        <ion-grid style="padding: 10px !important">
+          <ion-row>
+            <ion-col>
+              <img
+                class="new-image"
+                src="{{ new.image }}"
+                alt="{{ new.title }}"
+              />
+            </ion-col>
+
+            <ion-col size="9">
+              <span class="new-date">{{ new.date }}</span>
+              <span class="new-title">{{ new.title }}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </div>
+
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="info">
+              <span class="info-text"
+                >Puedes contactar con nosotros por diferentes vías y nuestro
+                departamento de atención al cliente te responderá atendiendo tu
+                solicitud.</span
+              >
+              <br /><br />
+              <span>T. 900 828 006</span>
+              <span>info&#64;audaxrenovables.com</span>
+              <span>De lunes a viernes de 09:00h a 19:00h</span>
+
+              <span class="download-text"
+                >¡Descárgate la app de Audax Clientes!</span
+              >
+
+              <ion-grid class="icons-apps">
+                <ion-row>
+                  <ion-col>
+                    <img src="/assets/img/apple.png" alt="" />
+                  </ion-col>
+
+                  <ion-col>
+                    <img src="/assets/img/google.png" alt="" />
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-list>
+</ion-split-pane>

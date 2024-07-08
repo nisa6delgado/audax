@@ -1,0 +1,9 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+
+:root {
+  --ion-item-background: #f9f8f5;
+  --sidebar-min-width: 130px;
+  --sidebar-max-width: 300px;
+  --main-content-width: calc(100vw - var(--sidebar-min-width));
+}

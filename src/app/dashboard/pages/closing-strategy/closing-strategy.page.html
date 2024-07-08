@@ -1,0 +1,196 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Estrategia de cierre</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="card-contract">
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <ion-card-title class="title-card-principal"
+            >Estrategia de cierre</ion-card-title
+          >
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <a href="#" class="links" style="margin-right: 20px"
+            >Contactar con el KAM</a
+          >
+          <a href="#" class="links" style="margin-right: 20px"
+            >Ver evolucion futuros</a
+          >
+          <div style="display: flex; align-items: center">
+            <ion-label class="text-light">LUZ</ion-label>
+            <ion-toggle></ion-toggle>
+            <ion-label class="text-gas">GAS</ion-label>
+          </div>
+        </div>
+      </div>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="display: flex">
+          <div style="display: flex; flex-direction: row; align-items: center">
+            <ion-card class="ion-card-grey">
+              <ion-card-header>
+                <ion-card-title>
+                  <div class="text-center">
+                    <ion-checkbox></ion-checkbox>
+                    <ion-icon name="bulb-outline" class="ml-5"></ion-icon>
+                    LUZ - 6.1TD
+                  </div>
+                  <ion-chip>Nave 1</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="ion-card-orange">
+              <ion-card-header>
+                <ion-card-title>
+                  <div style="display: flex; align-items: center">
+                    <ion-checkbox></ion-checkbox>
+                    <ion-icon name="flame-outline" class="ml-5"></ion-icon> LUZ
+                    - 6.1TD
+                  </div>
+                  <ion-chip>Nave 2</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div style="display: flex; justify-content: center">
+      <table>
+        <thead>
+          <tr style="border-bottom: none">
+            <th>#</th>
+            <th>Producto</th>
+            <th>Creacion</th>
+            <th>Volumen</th>
+            <th>Precio (€/MWh)</th>
+            <th>Validez</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Q3</td>
+            <td>24/11/2023</td>
+            <td>20%</td>
+            <td>48.0</td>
+            <td>24/09/2024 a las 14.00</td>
+            <td>
+              <ion-chip class="closed-chip">
+                <ion-label>CERRADO</ion-label>
+              </ion-chip>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>80%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="simulation-chip">
+                <ion-label>SIMULACION</ion-label>
+              </ion-chip>
+            </td>
+            <td>
+              <div
+                style="display: flex; flex-direction: row; align-items: center"
+              >
+                <a href="#" class="links" style="margin-right: 20px"
+                  >Eliminar</a
+                >
+
+                <ion-button>Ejecutar cierre</ion-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>10%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="cotization-chip">
+                <ion-label>PENDIENTE COTIZACION</ion-label>
+              </ion-chip>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>12%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="pending-chip">
+                <ion-label>PENDIENTE ACEPTACION</ion-label>
+              </ion-chip>
+            </td>
+            <td>
+              <div
+                style="display: flex; flex-direction: row; align-items: center"
+              >
+                <a href="#" class="links" style="margin-right: 20px"
+                  >Eliminar</a
+                >
+
+                <ion-button>Ejecutar cierre</ion-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>10%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="not-confirm-chip">
+                <ion-label>NO CONFIRMADO</ion-label>
+              </ion-chip>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="p-5">
+      <canvas id="chart">{{ chart }}</canvas>
+    </div>
+  </ion-card>
+
+  <div style="margin-left: 10px">
+    <span
+      >* El precio cotizado es el valor que se muestra en www.omip.pt en el día
+      D, correspondiente al valor del cierre del producto cotizado en el día
+      D-1. Esta cotización se muestra únicamente a efectos de simulación, no
+      siendo un valor vinculante. En caso de solicitud de cierre en firme por
+      parte de cliente, el precio cotizado se actualizará en base al valor real
+      de mercado y será vinculante hasta el periodo de validez indicado.</span
+    >
+  </div>
+</ion-content>
