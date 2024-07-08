@@ -13,10 +13,18 @@
             >Estrategia de cierre</ion-card-title
           >
         </div>
-        <div style="display: flex; flex-direction: row; align-items: center">
-          <a href="#" class="links" style="margin-right: 20px"
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+          "
+        >
+          <a class="links" style="margin-right: 20px" id="open-modal"
             >Contactar con el KAM</a
           >
+
           <a href="#" class="links" style="margin-right: 20px"
             >Ver evolucion futuros</a
           >
@@ -193,4 +201,57 @@
       de mercado y será vinculante hasta el periodo de validez indicado.</span
     >
   </div>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-title>Pide cita con el KAM</ion-title>
+            </div>
+            <div>
+              <ion-icon name="close-outline" (click)="cancel()"></ion-icon>
+            </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="mb-24">
+          <span
+            >Selecciona una de las siguientes opciones para <br />que el KAM se
+            ponga en contacto.</span
+          >
+        </div>
+
+        <div class="menu-item" *ngFor="let date of dataKAM">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-label>{{ date.day}}</ion-label>
+            </div>
+            <div>
+              <ion-label>{{date.time}}</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+        <div style="display: flex; align-items: center; justify-content: end">
+          <ion-button (click)="confirm()" [strong]="true">Aceptar</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
