@@ -20,7 +20,7 @@
         >
           <ion-item
             routerDirection="root"
-            [routerLink]="[p.url]"
+            [href]="[p.url]"
             lines="none"
             detail="false"
             routerLinkActive="selected"
@@ -40,7 +40,7 @@
         <ion-menu-toggle auto-hide="false" *ngFor="let item of changes">
           <ion-item
             lines="none"
-            [routerLink]="[item.url]"
+            [href]="[item.url]"
             routerLinkActive="selected"
             class="menu-item"
           >

@@ -13,4 +13,11 @@ export const DASHBOARD_ROUTES: Routes = [
         (m) => m.ClosingStrategyPage
       ),
   },
+  {
+    path: 'closing-simulation',
+    loadComponent: () =>
+      import('./pages/closing-simulation/closing-simulation.page').then(
+        (m) => m.ClosingSimulationPage
+      ),
+  },
 ];

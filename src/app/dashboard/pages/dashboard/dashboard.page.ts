@@ -83,6 +83,7 @@ export class DashboardPage implements OnInit {
     },
   ];
   ngOnInit() {
+    
     const data = {
       labels: [
         'Dic',
@@ -117,7 +118,7 @@ export class DashboardPage implements OnInit {
       ],
     };
 
-    this.chart = new Chart('chart', {
+    this.chart = new Chart('dashboard', {
       type: 'bar',
       data,
       options: {

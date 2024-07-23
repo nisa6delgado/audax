@@ -1,0 +1,953 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Simulación de cierre</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="card-contract">
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <ion-card-title class="title-card-principal"
+            >Simulación de cierre</ion-card-title
+          >
+        </div>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+          "
+        >
+          <a class="links" style="margin-right: 20px" id="closin-simulation-kam"
+            >Contactar con el KAM</a
+          >
+
+          <a
+            class="links"
+            id="closing-simulation-futures"
+            style="margin-right: 20px"
+            >Ver evolucion futuros</a
+          >
+          <div style="display: flex; align-items: center">
+            <ion-label class="text-light">LUZ</ion-label>
+            <ion-toggle></ion-toggle>
+            <ion-label class="text-gas">GAS</ion-label>
+          </div>
+        </div>
+      </div>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="display: flex">
+          <div style="display: flex; flex-direction: row; align-items: center">
+            <ion-card class="ion-card-grey">
+              <ion-card-header>
+                <ion-card-title>
+                  <div class="text-center">
+                    <ion-checkbox></ion-checkbox>
+                    <ion-icon name="bulb-outline" class="ml-5"></ion-icon>
+                    LUZ - 6.1TD
+                  </div>
+                  <ion-chip>Nave 1</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+
+            <ion-card class="ion-card-orange">
+              <ion-card-header>
+                <ion-card-title>
+                  <div style="display: flex; align-items: center">
+                    <ion-checkbox></ion-checkbox>
+                    <ion-icon name="flame-outline" class="ml-5"></ion-icon> LUZ
+                    - 6.1TD
+                  </div>
+                  <ion-chip>Nave 2</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div style="display: flex; justify-content: center">
+      <table>
+        <thead>
+          <tr style="border-bottom: none">
+            <th>#</th>
+            <th>Producto</th>
+            <th>Creacion</th>
+            <th>Volumen</th>
+            <th>Precio (€/MWh)</th>
+            <th>Validez</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Q3</td>
+            <td>24/11/2023</td>
+            <td>20%</td>
+            <td>48.0</td>
+            <td>24/09/2024 a las 14.00</td>
+            <td>
+              <ion-chip class="closed-chip">
+                <ion-label>CERRADO</ion-label>
+              </ion-chip>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>80%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="simulation-chip">
+                <ion-label>SIMULACION</ion-label>
+              </ion-chip>
+            </td>
+            <td>
+              <div
+                style="display: flex; flex-direction: row; align-items: center"
+              >
+                <a href="#" class="links" style="margin-right: 20px"
+                  >Eliminar</a
+                >
+
+                <ion-button>Ejecutar cierre</ion-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>10%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="cotization-chip">
+                <ion-label>PENDIENTE COTIZACION</ion-label>
+              </ion-chip>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>12%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="pending-chip">
+                <ion-label>PENDIENTE ACEPTACION</ion-label>
+              </ion-chip>
+            </td>
+            <td>
+              <div
+                style="display: flex; flex-direction: row; align-items: center"
+              >
+                <a href="#" class="links" style="margin-right: 20px"
+                  >Eliminar</a
+                >
+
+                <ion-button>Ejecutar cierre</ion-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Q3 + Q4</td>
+            <td>24/12/2023</td>
+            <td>10%</td>
+            <td>56.6</td>
+            <td>24/01/2025 a las 14.00</td>
+            <td>
+              <ion-chip class="not-confirm-chip">
+                <ion-label>NO CONFIRMADO</ion-label>
+              </ion-chip>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-5 mb-5" style="display: flex; justify-content: center">
+      <table>
+        <thead>
+          <tr style="border-bottom: none">
+            <th colspan="2"></th>
+            <th colspan="5">REAL</th>
+            <th colspan="5">SIMULACIÓN</th>
+            <th></th>
+          </tr>
+
+          <tr style="border-bottom: none">
+            <th></th>
+            <th>Mes</th>
+            <th>Importe</th>
+            <th>% Fijo</th>
+            <th>Fijo</th>
+            <th>% Indexado</th>
+            <th>Indexado</th>
+            <th>Total</th>
+            <th>% Fijo</th>
+            <th>Fijo</th>
+            <th>% Indexado</th>
+            <th>Indexado</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'enero'"
+                (click)="collapseRow('enero')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'enero'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Enero</td>
+            <td>5.5554,95€</td>
+            <td>-</td>
+            <td>-</td>
+            <td>100%</td>
+            <td></td>
+            <td></td>
+            <td>-</td>
+            <td>-</td>
+            <td>100%</td>
+            <td></td>
+            <td>120.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'enero'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'febrero'"
+                (click)="collapseRow('febrero')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'febrero'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Febrero</td>
+            <td>5.5554,95€</td>
+            <td>-</td>
+            <td>-</td>
+            <td>100%</td>
+            <td>64.683,57€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>70.238,57€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'febrero'" class="row-collapsed">
+            <td></td>
+
+            <td>
+              <div>
+                <b>TP P1</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>2.003,23€</td>
+
+            <td>
+              <div>
+                <b>TP P3</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>100%</td>
+            <td>20.659,57€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'febrero'" class="row-collapsed">
+            <td></td>
+
+            <td>
+              <div>
+                <b>TP P2</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>1.855,62€</td>
+
+            <td>
+              <div>
+                <b>TP P4</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>100%</td>
+            <td>15.643,60€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'febrero'" class="row-collapsed">
+            <td></td>
+
+            <td>
+              <div>
+                <b>TP P3</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>790,39€</td>
+
+            <td>
+              <div>
+                <b>TP P6</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>100%</td>
+            <td>28.380.28€</td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td>
+              Impuesto sobre la electricidad <br />
+              750.00 x 0.5 <br /><br />
+
+              Alquier de equipos
+            </td>
+
+            <td>
+              375.01€ <br /><br /><br />
+              95.67€
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'marzo'"
+                (click)="collapseRow('marzo')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'marzo'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Marzo</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>120.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'marzo'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'abril'"
+                (click)="collapseRow('abril')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'abril'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Abril</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>120.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'abril'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'mayo'"
+                (click)="collapseRow('mayo')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'mayo'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Mayo</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>120.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'mayo'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'junio'"
+                (click)="collapseRow('junio')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'junio'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Junio</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>120.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'junio'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'julio'"
+                (click)="collapseRow('julio')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'julio'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Julio</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>125.025,64€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'julio'" class="row-collapsed">
+            <td></td>
+
+            <td>
+              <div>
+                <b>TP P1</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>2.003,23€</td>
+
+            <td>
+              <div>
+                <b>TP P3</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>100%</td>
+            <td>20.659,57€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'julio'" class="row-collapsed">
+            <td></td>
+
+            <td>
+              <div>
+                <b>TP P2</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>1.855,62€</td>
+
+            <td>
+              <div>
+                <b>TP P4</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>100%</td>
+            <td>15.643,60€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'julio'" class="row-collapsed">
+            <td></td>
+
+            <td>
+              <div>
+                <b>TP P3</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>790,39€</td>
+
+            <td>
+              <div>
+                <b>TP P6</b>
+              </div>
+
+              1.540W x <br />
+              30 dias x <br />
+              0.043360€
+            </td>
+
+            <td>0</td>
+            <td>0</td>
+            <td>100%</td>
+            <td>28.380.28€</td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td>
+              Impuesto sobre la electricidad <br />
+              750.00 x 0.5 <br /><br />
+
+              Alquier de equipos
+            </td>
+
+            <td>
+              375.01€ <br /><br /><br />
+              95.67€
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'agosto'"
+                (click)="collapseRow('agosto')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'agosto'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Agosto</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>100.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'agosto'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'septiembre'"
+                (click)="collapseRow('septiembre')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'septiembre'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Septiembre</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>100.000€</td>
+          </tr>
+
+          <tr
+            *ngIf="rowToCollapsed === 'septiembre'"
+            class="row-collapsed"
+          ></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'octubre'"
+                (click)="collapseRow('octubre')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'octubre'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Octubre</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>100.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'octubre'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'noviembre'"
+                (click)="collapseRow('noviembre')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'noviembre'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Noviembre</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>100.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'noviembre'" class="row-collapsed"></tr>
+
+          <tr>
+            <td>
+              <img
+                src="/assets/img/arrow-down.svg"
+                *ngIf="rowToCollapsed === '' || rowToCollapsed !== 'diciembre'"
+                (click)="collapseRow('diciembre')"
+                class="arrow-down"
+              />
+              <img
+                src="/assets/img/arrow-up.svg"
+                *ngIf="rowToCollapsed === 'diciembre'"
+                (click)="collapseRow('')"
+                class="arrow-up"
+              />
+            </td>
+            <td>Diciembre</td>
+            <td>5.5554,95€</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>100.000€</td>
+          </tr>
+
+          <tr *ngIf="rowToCollapsed === 'diciembre'" class="row-collapsed"></tr>
+        </tbody>
+      </table>
+    </div>
+  </ion-card>
+
+  <div style="margin-left: 10px">
+    <span
+      >* El precio cotizado es el valor que se muestra en www.omip.pt en el día
+      D, correspondiente al valor del cierre del producto cotizado en el día
+      D-1. Esta cotización se muestra únicamente a efectos de simulación, no
+      siendo un valor vinculante. En caso de solicitud de cierre en firme por
+      parte de cliente, el precio cotizado se actualizará en base al valor real
+      de mercado y será vinculante hasta el periodo de validez indicado.</span
+    >
+  </div>
+
+  <ion-modal
+    trigger="closin-simulation-kam"
+    (willDismiss)="onWillDismiss($event)"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-title>Pide cita con el KAM</ion-title>
+            </div>
+            <div>
+              <ion-icon name="close-outline" (click)="cancel()"></ion-icon>
+            </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="mb-24">
+          <span
+            >Selecciona una de las siguientes opciones para <br />que el KAM se
+            ponga en contacto.</span
+          >
+        </div>
+
+        <div class="menu-item" *ngFor="let date of dataKAM">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-label>{{ date.day}}</ion-label>
+            </div>
+            <div>
+              <ion-label>{{date.time}}</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+        <div style="display: flex; align-items: center; justify-content: end">
+          <ion-button (click)="confirm()" [strong]="true">Aceptar</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    trigger="closing-simulation-futures"
+    class="closing-simulation-futures"
+    (willDismiss)="onWillDismiss($event)"
+    (ionModalDidPresent)="generateFutureChart()"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-title
+                >Histórico de la cotización diaria de los futuros</ion-title
+              >
+            </div>
+            <div>
+              <ion-icon name="close-outline" (click)="cancel()"></ion-icon>
+            </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="text-center">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-checkbox checked (ionChange)="generateFutureChart()"
+                  >Q+1</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Q+2</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Q+3</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Q+4</ion-checkbox
+                >
+
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+1</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+2</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+3</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+4</ion-checkbox
+                >
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div>
+          <div class="row">
+            <div class="col-1"></div>
+
+            <div class="col-10">
+              <canvas id="futuresCS">{{ futures }}</canvas>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

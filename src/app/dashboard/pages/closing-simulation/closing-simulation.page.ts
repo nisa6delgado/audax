@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {
   IonButton,
+  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -11,16 +12,12 @@ import {
   IonChip,
   IonCol,
   IonContent,
-  IonDatetime,
   IonGrid,
   IonHeader,
   IonIcon,
-  IonInput,
   IonItem,
   IonLabel,
   IonModal,
-  IonRadio,
-  IonRadioGroup,
   IonRow,
   IonSearchbar,
   IonTitle,
@@ -31,23 +28,20 @@ import { OverlayEventDetail } from '@ionic/core/components';
 import { Chart } from 'chart.js/auto';
 
 @Component({
-  selector: 'app-closing-strategy',
-  templateUrl: './closing-strategy.page.html',
-  styleUrls: ['./closing-strategy.page.css'],
+  selector: 'app-closing-simulation',
+  templateUrl: './closing-simulation.page.html',
+  styleUrls: ['./closing-simulation.page.css'],
   standalone: true,
   imports: [
-    IonRadioGroup,
-    IonRadio,
     IonItem,
-    IonDatetime,
-    IonInput,
+    IonButtons,
+    IonModal,
     IonCheckbox,
     IonToggle,
     IonButton,
     IonLabel,
     IonCardContent,
     IonChip,
-    IonModal,
     IonIcon,
     IonSearchbar,
     IonCardTitle,
@@ -64,23 +58,13 @@ import { Chart } from 'chart.js/auto';
     FormsModule,
   ],
 })
-export class ClosingStrategyPage implements OnInit {
-  public chart: Chart;
-  public futures: Chart;
+export class ClosingSimulationPage implements OnInit {
+  public chart:Chart;
+  public futures:Chart;
 
-  isModalOpen = false;
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-
-  message =
-    'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  public rowToCollapsed:string = '';
 
   @ViewChild(IonModal) modal: IonModal;
-  @ViewChild(IonModal) closingSimulationModal: IonModal;
-
-  name: string;
 
   public dataKAM = [
     {
@@ -110,7 +94,11 @@ export class ClosingStrategyPage implements OnInit {
     },
   ];
 
+  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
+  name: string;
+
   ngOnInit() {
+
     const data = {
       labels: [
         'ENE',
@@ -129,22 +117,37 @@ export class ClosingStrategyPage implements OnInit {
       datasets: [
         {
           label: '2021',
-          data: [11, 10, 9, 10, 11, 11.5, 11, 9, 8.5, 8, 8.5, 10],
-          backgroundColor: 'background: rgba(217, 217, 217, 1)',
-          fill: 'background: rgba(217, 217, 217, 1)',
+          data: [0, 0, 0, 0, 0, 5, 5, 4, 4, 3, 3, 0],
+          backgroundColor: 'rgba(202, 222, 160, 1)',
+          borderColor: 'rgba(202, 222, 160, 1)',
+          fill: true,
+        },
+        {
+          label: '2022',
+          data: [0, 0, 0, 0, 0, 6, 6, 5, 5, 4, 4, 0],
+          backgroundColor: 'rgba(206, 206, 206, 1)',
+          borderColor: 'rgba(206, 206, 206, 1)',
+          fill: true,
+        },
+        {
+          label: '2023',
+          data: [0, 0, 0, 0, 0, 7, 7, 6, 6, 5, 5, 0],
+          backgroundColor: 'rgba(255, 203, 142, 1)',
+          borderColor: 'rgba(255, 203, 142, 1)',
+          fill: true,
         },
       ],
     };
 
-    this.chart = new Chart('colsingStrategy', {
+    this.chart = new Chart('closingSimulation', {
       type: 'line',
       data,
       options: {
         plugins: {
           legend: {
             display: true,
-            align: 'center',
-            position: 'bottom',
+            align: 'end',
+            position: 'top',
           },
         },
         scales: {
@@ -157,6 +160,14 @@ export class ClosingStrategyPage implements OnInit {
     });
   }
 
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss(this.name, 'confirm');
+  }
+
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
@@ -164,12 +175,8 @@ export class ClosingStrategyPage implements OnInit {
     }
   }
 
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
+  collapseRow(row: string) {
+    this.rowToCollapsed = row;
   }
 
   generateFutureChart() {
@@ -186,18 +193,9 @@ export class ClosingStrategyPage implements OnInit {
         {
           label: '2021',
           data: [
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random()
           ],
           backgroundColor: 'rgba(238, 175, 48, 1)',
           borderColor: 'rgba(238, 175, 48, 1)',
@@ -205,18 +203,9 @@ export class ClosingStrategyPage implements OnInit {
         {
           label: '2022',
           data: [
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random()
           ],
           backgroundColor: 'rgba(106, 89, 57, 1)',
           borderColor: 'rgba(106, 89, 57, 1)',
@@ -224,18 +213,9 @@ export class ClosingStrategyPage implements OnInit {
         {
           label: '2023',
           data: [
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random()
           ],
           backgroundColor: 'rgba(152, 75, 140, 1)',
           borderColor: 'rgba(152, 75, 140, 1)',
@@ -243,18 +223,9 @@ export class ClosingStrategyPage implements OnInit {
         {
           label: '2023',
           data: [
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
-            this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random(),
+            this.random(), this.random(), this.random(), this.random()
           ],
           backgroundColor: 'rgba(150, 150, 150, 1)',
           borderColor: 'rgba(150, 150, 150, 1)',
@@ -266,7 +237,7 @@ export class ClosingStrategyPage implements OnInit {
       this.futures.destroy();
     }
 
-    this.futures = new Chart('futuresCSt', {
+    this.futures = new Chart('futuresCS', {
       type: 'line',
       data,
       options: {

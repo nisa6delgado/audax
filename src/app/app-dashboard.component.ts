@@ -112,7 +112,7 @@ export class AppDashboardComponent {
     },
     {
       title: 'Simulación de cierre',
-      url: '/closing-simulation',
+      url: '/dashboard/closing-simulation',
       icon: 'fa-solid fa-chart-line',
     },
     {

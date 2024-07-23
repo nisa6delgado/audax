@@ -13,19 +13,18 @@
             >Estrategia de cierre</ion-card-title
           >
         </div>
-        <div
-          style="
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            cursor: pointer;
-          "
-        >
-          <a class="links" style="margin-right: 20px" id="open-modal"
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <a
+            class="links"
+            style="cursor: pointer; margin-right: 20px"
+            id="closing-strategy-kam"
             >Contactar con el KAM</a
           >
 
-          <a href="#" class="links" style="margin-right: 20px"
+          <a
+            class="links"
+            id="closing-strategy-futures"
+            style="cursor: pointer; margin-right: 20px"
             >Ver evolucion futuros</a
           >
           <div style="display: flex; align-items: center">
@@ -183,11 +182,27 @@
             <td></td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td
+              style="
+                font-size: 16px;
+                text-decoration: underline;
+                color: #4994ec;
+                cursor: pointer;
+                font-weight: 400;
+              "
+              (click)="setOpen(true)"
+            >
+              Simulacion de cierre
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
     <div class="p-5">
-      <canvas id="chart">{{ chart }}</canvas>
+      <canvas id="colsingStrategy">{{ chart }}</canvas>
     </div>
   </ion-card>
 
@@ -202,7 +217,11 @@
     >
   </div>
 
-  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ion-modal
+    trigger="closing-strategy-kam"
+    (willDismiss)="onWillDismiss($event)"
+    class="closing-strategy-kam"
+  >
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -250,6 +269,287 @@
         <hr />
         <div style="display: flex; align-items: center; justify-content: end">
           <ion-button (click)="confirm()" [strong]="true">Aceptar</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    trigger="closing-strategy-futures"
+    class="closing-strategy-futures"
+    (willDismiss)="onWillDismiss($event)"
+    (ionModalDidPresent)="generateFutureChart()"
+  >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-title
+                >Histórico de la cotización diaria de los futuros</ion-title
+              >
+            </div>
+            <div>
+              <ion-icon name="close-outline" (click)="cancel()"></ion-icon>
+            </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="text-center">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-checkbox checked (ionChange)="generateFutureChart()"
+                  >Q+1</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Q+2</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Q+3</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Q+4</ion-checkbox
+                >
+
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+1</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+2</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+3</ion-checkbox
+                >
+                <ion-checkbox (ionChange)="generateFutureChart()"
+                  >Yr+4</ion-checkbox
+                >
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div>
+          <div class="row">
+            <div class="col-1"></div>
+
+            <div class="col-10">
+              <canvas id="futuresCSt">{{ futures }}</canvas>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isModalOpen" class="closing-simulation">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <ion-title>Simular un cierre</ion-title>
+            </div>
+            <div>
+              <ion-icon
+                name="close-outline"
+                (click)="setOpen(false)"
+              ></ion-icon>
+            </div>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="5">
+                    <div style="display: flex; flex-direction: column">
+                      <ion-label>Fecha inicio</ion-label>
+
+                      <span class="text-help"
+                        >Texto ayuda explicando en <br />
+                        consiste el campo.</span
+                      >
+                    </div>
+
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 28px;
+                      "
+                    >
+                      <ion-label>Producto solicitado:</ion-label>
+
+                      <span class="text-help"
+                        >Texto ayuda explicando en <br />
+                        consiste el campo.</span
+                      >
+                    </div>
+
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 65%;
+                      "
+                    >
+                      <ion-label>Volumen:</ion-label>
+
+                      <span class="text-help"
+                        >Texto ayuda explicando en <br />
+                        consiste el campo.</span
+                      >
+                    </div>
+
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 8%;
+                      "
+                    >
+                      <ion-label>Precio cotizado *:</ion-label>
+
+                      <span class="text-help"
+                        >Texto ayuda explicando en <br />
+                        consiste el campo.</span
+                      >
+                    </div>
+
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        margin-top: 11%;
+                      "
+                    >
+                      <ion-label>Período validez:</ion-label>
+
+                      <span class="text-help"
+                        >Texto ayuda explicando en <br />
+                        consiste el campo.</span
+                      >
+                    </div>
+                  </ion-col>
+                  <ion-col size="7">
+                    <div>
+                      <ion-input fill="outline" type="date" title="date">
+                      </ion-input>
+                    </div>
+
+                    <div style="margin-top: 50px">
+                      <ion-radio-group value="custom-checked">
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Q+1</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Q+2</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Q+4</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Q+5</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Yr+1</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Yr+2</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">Yr+3</ion-label>
+                        </div>
+                      </ion-radio-group>
+                    </div>
+
+                    <div style="margin-top: 3%">
+                      <ion-radio-group value="custom-checked">
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">20%</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">50%</ion-label>
+                        </div>
+                        <div>
+                          <ion-radio></ion-radio>
+                          <ion-label style="margin-left: 5px">100%</ion-label>
+                        </div>
+                      </ion-radio-group>
+                    </div>
+
+                    <div style="margin-top: 8%">
+                      <ion-input labelPlacement="stacked" fill="outline">
+                        <ion-label slot="end"> €/MWh</ion-label>
+                      </ion-input>
+                    </div>
+
+                    <div style="margin-top: 8%">
+                      <ion-input
+                        fill="outline"
+                        type="datetime-local"
+                        title="date"
+                      >
+                      </ion-input>
+                    </div>
+                  </ion-col>
+                  <div style="margin-top: 3%">
+                    <p class="text-footer">
+                      * El precio cotizado es el valor que se muestra en
+                      www.omip.pt en el día D, correspondiente al valor del
+                      cierre del producto cotizado en el día D-1. Esta
+                      cotización se muestra únicamente a efectos de simulación,
+                      no siendo un valor vinculante. En caso de solicitud de
+                      cierre en firme por parte de cliente, el precio cotizado
+                      se actualizará en base al valor real de mercado y será
+                      vinculante hasta el periodo de validez indicado.
+                    </p>
+                  </div>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+
+            <div class="v-line"></div>
+            <ion-col size="6">
+              <p style="color: black">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Possimus aut voluptatum nam maiores. A error quasi minus
+                explicabo eius repellendus consectetur quae et eaque rerum enim
+                officiis aperiam, dolorum natus.
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <hr />
+        <div style="display: flex; align-items: center; justify-content: end">
+          <ion-button (click)="confirm()" [strong]="true">Crear</ion-button>
         </div>
       </ion-content>
     </ng-template>
