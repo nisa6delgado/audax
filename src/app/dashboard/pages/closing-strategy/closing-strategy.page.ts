@@ -67,6 +67,7 @@ import { Chart } from 'chart.js/auto';
 export class ClosingStrategyPage implements OnInit {
   public chart: Chart;
   public futures: Chart;
+  public closingSimulation: Chart;
 
   isModalOpen = false;
 
@@ -289,5 +290,45 @@ export class ClosingStrategyPage implements OnInit {
 
   random() {
     return Math.floor(Math.random() * 221);
+  }
+
+  closingSimulationGraph() {
+    const data = {
+      labels: [
+        '25 Mar',
+        '1 Abr',
+        '8 Abr',
+        '15 Abr',
+        '22 Abr',
+      ],
+      datasets: [
+        {
+          label: '2021',
+          data: [60, 57, 63, 66, 68],
+          backgroundColor: 'rgba(238, 175, 48, 1)',
+          borderColor: 'rgba(238, 175, 48, 1)',
+        }
+      ],
+    };
+
+    this.closingSimulation = new Chart('closingSimulationGraph', {
+      type: 'line',
+      data,
+      options: {
+        plugins: {
+          legend: {
+            display: false,
+            align: 'end',
+            position: 'top',
+          },
+        },
+        scales: {
+          y: {
+            suggestedMin: 55,
+            suggestedMax: 70,
+          },
+        },
+      },
+    });
   }
 }

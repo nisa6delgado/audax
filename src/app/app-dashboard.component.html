@@ -40,7 +40,7 @@
         <ion-menu-toggle auto-hide="false" *ngFor="let item of changes">
           <ion-item
             lines="none"
-            [href]="[item.url]"
+            (click)="setOpen(item.url)"
             routerLinkActive="selected"
             class="menu-item"
           >
@@ -148,4 +148,63 @@
       </ion-grid>
     </div>
   </ion-list>
+
+  <ion-modal [isOpen]="changePasswordModal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="change-password-title">Cambiar contraseña</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding change-password-content">
+        <p>Asegurate de que tu nueva contraseña cumple con los siguientes requisitos</p>
+
+        <div>
+          <ion-icon class="text-danger" *ngIf="passwordRules.length == false" name="close-circle-outline"></ion-icon>
+          <ion-icon class="text-success" *ngIf="passwordRules.length == true" name="checkmark-circle-outline"></ion-icon> 
+          Al menos 8 caracteres de longitud
+        </div>
+
+        <div>
+          <ion-icon class="text-danger" *ngIf="passwordRules.upper == false" name="close-circle-outline"></ion-icon>
+          <ion-icon class="text-success" *ngIf="passwordRules.upper == true" name="checkmark-circle-outline"></ion-icon> 
+          Incluye al menos una letra mayúscula
+        </div>
+
+        <div>
+          <ion-icon class="text-danger" *ngIf="passwordRules.lower == false" name="close-circle-outline"></ion-icon>
+          <ion-icon class="text-success" *ngIf="passwordRules.lower == true" name="checkmark-circle-outline"></ion-icon> 
+          Incluye al menos una letra minúscula
+        </div>
+
+        <div>
+          <ion-icon class="text-danger" *ngIf="passwordRules.number == false" name="close-circle-outline"></ion-icon>
+          <ion-icon class="text-success" *ngIf="passwordRules.number == true" name="checkmark-circle-outline"></ion-icon> 
+          Incluye al menos un número
+        </div>
+
+        <div>
+          <ion-icon class="text-danger" *ngIf="passwordRules.special == false" name="close-circle-outline"></ion-icon>
+          <ion-icon class="text-success" *ngIf="passwordRules.special == true" name="checkmark-circle-outline"></ion-icon> 
+          Incluye al menos un caracter especial
+        </div>
+
+        <div class="mt-5">
+          <ion-input label="Contraseña actual *" (keyup)="validateOldPassword($event)" label-placement="floating" fill="outline"></ion-input>
+        </div>
+
+        <div class="mt-5">
+          <ion-input label="Nueva contraseña *" (keyup)="validateNewPassword($event)" label-placement="floating" fill="outline"></ion-input>
+        </div>
+
+        <div class="mt-5">
+          <ion-input label="Confirmar contraseña *" (keyup)="confirmPassword($event)" label-placement="floating" fill="outline"></ion-input>
+        </div>
+
+        <div class="mt-5">
+          <ion-button [disabled]="disableChangePasswordButton">Cambiar contraseña</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>  
 </ion-split-pane>

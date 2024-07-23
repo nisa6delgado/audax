@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.menu-item {
+  cursor: pointer;
+}
+
 .sidebar {
   min-width: 130px !important;
   border: none !important;
@@ -138,6 +142,14 @@
   font-family: "Lato";
 }
 
+ion-button {
+  --background: #4994ec !important;
+  --color: #fff !important;
+  --border-radius: 100px !important;
+  width: 143px;
+  height: 38px;
+}
+
 .burger-button {
   width: 38px;
   height: 38px;
@@ -150,6 +162,19 @@
     font-size: 38px;
     color: #808080;
   }
+}
+
+.mt-5 {
+  margin-top: 20px;
+}
+
+.change-password-title {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.change-password-content {
+  font-size: 15px;
 }
 
 .logo {

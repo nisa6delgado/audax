@@ -9,6 +9,7 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonChip,
+  IonModal,
   IonCol,
   IonContent,
   IonGrid,
@@ -23,6 +24,7 @@ import {
   IonNote,
   IonRouterLink,
   IonRouterOutlet,
+  IonInput,
   IonRow,
   IonSearchbar,
   IonSplitPane,
@@ -37,6 +39,7 @@ import {
   bookmarkSharp,
   heartOutline,
   heartSharp,
+  closeCircleOutline,
   mailOutline,
   mailSharp,
   paperPlaneOutline,
@@ -56,6 +59,7 @@ import {
     IonChip,
     IonCardContent,
     IonSearchbar,
+    IonInput,
     IonTitle,
     IonToolbar,
     IonHeader,
@@ -67,6 +71,7 @@ import {
     RouterLinkActive,
     CommonModule,
     IonGrid,
+    IonModal,
     IonCol,
     IonRow,
     IonApp,
@@ -130,7 +135,7 @@ export class AppDashboardComponent {
   public changes = [
     {
       title: 'Cambio contraseña',
-      url: '/change-password',
+      url: 'change-password',
       icon: 'fa-solid fa-gear',
     },
     {
@@ -176,7 +181,21 @@ export class AppDashboardComponent {
     dni: '53289229T',
   };
 
-  public showMenu: boolean = false;
+  public passwordRules = {
+    length: false,
+    lower: false,
+    upper: false,
+    number: false,
+    special: false
+  }
+
+  public showMenu:boolean = false;
+  public changePasswordModal:boolean = false;
+  public disableChangePasswordButton:boolean = true;
+
+  public newPassword:string = '';
+  public oldPassword:string = '';
+  public confirmPasswordValue:string = '';
 
   constructor() {
     addIcons({
@@ -185,6 +204,7 @@ export class AppDashboardComponent {
       paperPlaneOutline,
       paperPlaneSharp,
       heartOutline,
+      closeCircleOutline,
       heartSharp,
       archiveOutline,
       archiveSharp,
@@ -199,5 +219,91 @@ export class AppDashboardComponent {
 
   collapse() {
     this.showMenu = !this.showMenu;
+  }
+
+  setOpen(modal:string) {
+    if (modal == 'change-password') {
+      this.changePasswordModal = true;
+    }
+  }
+
+  validateNewPassword(event:any) {
+    const value = event.target.value;
+    this.newPassword = value;
+
+    const upper = /([A-Z])/;
+    const lower = /([a-z])/;
+    const number = /([0-9])/;
+    const special = /([$@$.!%*?&])/;
+
+    this.passwordRules.length = false;
+    this.passwordRules.upper = false;
+    this.passwordRules.lower = false;
+    this.passwordRules.number = false;
+    this.passwordRules.special = false;
+
+    if (value.length >= 8) {
+      this.passwordRules.length = true;
+    }
+
+    if (upper.test(value)) {
+      this.passwordRules.upper = true;
+    }
+
+    if (lower.test(value)) {
+      this.passwordRules.lower = true;
+    }
+
+    if (number.test(value)) {
+      this.passwordRules.number = true;
+    }
+
+    if (special.test(value)) {
+      this.passwordRules.special = true;
+    }
+
+    this.activateChangePassword();
+  }
+
+  validateOldPassword(event:any) {
+    this.oldPassword = event.target.value;
+    this.activateChangePassword();
+  }
+
+  confirmPassword(event:any) {
+    this.confirmPasswordValue = event.target.value;
+    this.activateChangePassword();
+  }
+
+  activateChangePassword() {
+    if (this.passwordRules.upper == false) {
+      return;
+    }
+
+    if (this.passwordRules.lower == false) {
+      return;
+    }
+
+    if (this.passwordRules.number == false) {
+      return;
+    }
+
+    if (this.passwordRules.special == false) {
+      return;
+    }
+
+    if (this.passwordRules.length == false) {
+      return;
+    }
+
+    if (this.oldPassword.length == 0) {
+      return;
+    }
+
+    if (this.newPassword != this.confirmPasswordValue.toString()) {
+      return;
+    }
+
+    this.disableChangePasswordButton = false;
   }
 }

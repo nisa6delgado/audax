@@ -349,7 +349,7 @@
     </ng-template>
   </ion-modal>
 
-  <ion-modal [isOpen]="isModalOpen" class="closing-simulation">
+  <ion-modal [isOpen]="isModalOpen" (ionModalDidPresent)="closingSimulationGraph()" class="closing-simulation">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -537,12 +537,8 @@
 
             <div class="v-line"></div>
             <ion-col size="6">
-              <p style="color: black">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus aut voluptatum nam maiores. A error quasi minus
-                explicabo eius repellendus consectetur quae et eaque rerum enim
-                officiis aperiam, dolorum natus.
-              </p>
+              <div class="text-center-2">Evolución del periodo del Q+4</div>
+              <canvas id="closingSimulationGraph">{{ closingSimulation }}</canvas>
             </ion-col>
           </ion-row>
         </ion-grid>
