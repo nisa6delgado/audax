@@ -20,4 +20,11 @@ export const DASHBOARD_ROUTES: Routes = [
         (m) => m.ClosingSimulationPage
       ),
   },
+  {
+    path: 'supplies',
+    loadComponent: () =>
+      import('./pages/simulation-list/simulation-list.page').then(
+        (m) => m.SimulationListPage
+      ),
+  },
 ];

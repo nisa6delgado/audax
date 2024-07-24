@@ -9,22 +9,22 @@ import {
   IonCardHeader,
   IonCardTitle,
   IonChip,
-  IonModal,
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
   IonIcon,
+  IonInput,
   IonItem,
   IonLabel,
   IonList,
   IonListHeader,
   IonMenu,
   IonMenuToggle,
+  IonModal,
   IonNote,
   IonRouterLink,
   IonRouterOutlet,
-  IonInput,
   IonRow,
   IonSearchbar,
   IonSplitPane,
@@ -37,9 +37,9 @@ import {
   archiveSharp,
   bookmarkOutline,
   bookmarkSharp,
+  closeCircleOutline,
   heartOutline,
   heartSharp,
-  closeCircleOutline,
   mailOutline,
   mailSharp,
   paperPlaneOutline,
@@ -92,7 +92,11 @@ import {
 export class AppDashboardComponent {
   public appPages = [
     { title: 'Dashboard', url: '/dashboard', icon: 'fa-solid fa-gauge' },
-    { title: 'Suministros', url: '/supplies', icon: 'fa-regular fa-clone' },
+    {
+      title: 'Suministros',
+      url: '/dashboard/supplies',
+      icon: 'fa-regular fa-clone',
+    },
     { title: 'Facturas', url: '/invoices', icon: 'fa-solid fa-plug' },
     {
       title: 'Consultas',
@@ -186,16 +190,16 @@ export class AppDashboardComponent {
     lower: false,
     upper: false,
     number: false,
-    special: false
-  }
+    special: false,
+  };
 
-  public showMenu:boolean = false;
-  public changePasswordModal:boolean = false;
-  public disableChangePasswordButton:boolean = true;
+  public showMenu: boolean = false;
+  public changePasswordModal: boolean = false;
+  public disableChangePasswordButton: boolean = true;
 
-  public newPassword:string = '';
-  public oldPassword:string = '';
-  public confirmPasswordValue:string = '';
+  public newPassword: string = '';
+  public oldPassword: string = '';
+  public confirmPasswordValue: string = '';
 
   constructor() {
     addIcons({
@@ -221,13 +225,13 @@ export class AppDashboardComponent {
     this.showMenu = !this.showMenu;
   }
 
-  setOpen(modal:string) {
+  setOpen(modal: string) {
     if (modal == 'change-password') {
       this.changePasswordModal = true;
     }
   }
 
-  validateNewPassword(event:any) {
+  validateNewPassword(event: any) {
     const value = event.target.value;
     this.newPassword = value;
 
@@ -265,12 +269,12 @@ export class AppDashboardComponent {
     this.activateChangePassword();
   }
 
-  validateOldPassword(event:any) {
+  validateOldPassword(event: any) {
     this.oldPassword = event.target.value;
     this.activateChangePassword();
   }
 
-  confirmPassword(event:any) {
+  confirmPassword(event: any) {
     this.confirmPasswordValue = event.target.value;
     this.activateChangePassword();
   }
