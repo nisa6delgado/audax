@@ -1,0 +1,87 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card class="card-fact">
+    <ion-card-header>
+      <ion-card-title>Facturas</ion-card-title>
+    </ion-card-header>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 15px;
+      "
+    >
+      <div>
+        <ion-searchbar
+          placeholder="Buscar por dirección, alias o CUPS"
+        ></ion-searchbar>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <a href="#" class="links" style="margin-right: 37px"
+          >Exportar a excel</a
+        >
+        <ion-button>Descargar facturas</ion-button>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-top: 25px">
+      <table>
+        <thead>
+          <tr style="border-bottom: none">
+            <th><ion-checkbox></ion-checkbox></th>
+            <th>Tipo</th>
+            <th>Tarifa</th>
+            <th>Alias</th>
+            <th>Factura</th>
+            <th>Fecha</th>
+            <th>CUPS</th>
+            <th>BI</th>
+            <th>IVA</th>
+            <th>Importe</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let invoice of invoices">
+            <td><ion-checkbox></ion-checkbox></td>
+            <td>
+              <ion-icon name="{{invoice.icon}}"></ion-icon> {{invoice.type}}
+            </td>
+            <td>{{invoice.tarifa}}</td>
+            <td>{{invoice.level}}</td>
+            <td>{{invoice.invoice}}</td>
+            <td>{{invoice.date}}</td>
+            <td>{{invoice.cups}}</td>
+            <td>{{invoice.bi}}</td>
+            <td>{{invoice.iva}}</td>
+            <td>{{invoice.import}}</td>
+            <td>
+              <a href="#" class="links" style="margin-right: 37px">Descargar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paginator">
+      <span class="active">1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span>
+    </div>
+  </ion-card>
+</ion-content>

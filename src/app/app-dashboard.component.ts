@@ -88,7 +88,7 @@ export class AppDashboardComponent {
   public appPages = [
     { title: 'Dashboard', url: '/dashboard', icon: 'fa-solid fa-gauge' },
     { title: 'Suministros', url: '/supplies', icon: 'fa-regular fa-clone' },
-    { title: 'Facturas', url: '/invoices', icon: 'fa-solid fa-plug' },
+    { title: 'Facturas', url: '/dashboard/invoices', icon: 'fa-solid fa-plug' },
     {
       title: 'Consultas',
       url: '/consultations',
