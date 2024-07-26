@@ -27,4 +27,9 @@ export const DASHBOARD_ROUTES: Routes = [
         (m) => m.SimulationListPage
       ),
   },
+  {
+    path: 'invoices',
+    loadComponent: () =>
+      import('./pages/invoices/invoices.page').then((m) => m.InvoicesPage),
+  }
 ];

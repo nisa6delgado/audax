@@ -97,7 +97,7 @@ export class AppDashboardComponent {
       url: '/dashboard/supplies',
       icon: 'fa-regular fa-clone',
     },
-    { title: 'Facturas', url: '/invoices', icon: 'fa-solid fa-plug' },
+    { title: 'Facturas', url: '/dashboard/invoices', icon: 'fa-solid fa-plug' },
     {
       title: 'Consultas',
       url: '/consultations',
