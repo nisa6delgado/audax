@@ -1,0 +1,146 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Fotovoltaica</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card class="card-contract">
+    <ion-grid class="gridContract">
+      <div class="font-24 text-secondary mt-19 ml-23">Fotovoltaica</div>
+
+      <div class="text-secondary font-16 ml-23 mt-6">Descubre cuál es el potencial de tu tejado y el número de placas solares que necesitas para reducir al máximo tu factura.</div>
+
+      <div class="text-secondary ml-23 font-18 mt-27">¿En qué dirección quieres  instalar las placas?</div>
+
+      <ion-grid class="mt-14">
+        <ion-row>
+          <ion-col>
+            <ion-card class="ion-card-orange">
+              <ion-card-header>
+                <ion-card-title>
+                  <div class="text-center">
+                    <ion-checkbox checked></ion-checkbox>
+                    <ion-icon name="bulb-outline" class="ml-5"></ion-icon>
+                    LUZ - 6.1TD
+                  </div>
+                  <ion-chip>Nave 1</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="ion-card-grey">
+              <ion-card-header>
+                <ion-card-title>
+                  <div class="text-center">
+                    <ion-checkbox></ion-checkbox>
+                    <ion-icon name="bulb-outline" class="ml-5"></ion-icon>
+                    LUZ - 6.1TD
+                  </div>
+                  <ion-chip>Nave 2</ion-chip>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <span class="text1">C/Andreu Vidal 15-17 Esc. 1, 2º 1ª</span>
+                <span class="text2">CUPS: ES0031408116733006XD0F</span>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+
+          <ion-col></ion-col>          
+        </ion-row>
+
+        <ion-row>
+          <div class="bg-grey">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="8" class="text-center">
+                  <img src="/assets/img/photovoltaic.png" class="mt-40 mb-45 border-radius-400 w-447 h-448" alt="photovoltaic">
+
+                  <div class="bg-white h-45 text-center font-16 border-radius-10 mx-200 mb-45">
+                    <div class="row p-3 w-100">
+                      <div class="col">Número de placas</div>
+
+                      <div class="col">
+                        <ion-range value="30"></ion-range>
+                      </div>
+
+                      <div class="col">30</div>
+                    </div>
+                  </div>
+                </ion-col>
+
+                <ion-col class="bg-white adactive-to-card">
+                  <div class="ml-26 mt-28 mb-3 font-12 text-grey">TU ENERGÍA NECESARIA</div>
+
+                  <div class="ml-26 font-32 mb-27 text-darkk">8.654kWh</div>
+
+                  <div class="ml-26 mb-3 font-12 text-grey">ENERGÍA GENERADA CON PANELES</div>
+
+                  <div class="ml-26 font-32 mb-20 text-darkk">9.654kWh</div>
+
+                  <hr class="ml-26 mr-26 mb-25">
+
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <div class="ml-26 mb-3 font-12 text-grey">TU FACTURA ACTUAL</div>
+                        <div class="ml-26 font-32 text-darkk">675€</div>
+                      </ion-col>
+
+                      <ion-col>
+                        <div class="ml-26 mb-3 font-12 text-grey">FACTURA CON PANELES</div>
+                        <div class="ml-26 font-32 text-darkk">475€</div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+
+                  <hr class="ml-26 mr-26 mt-23 mb-22">
+
+                  <div class="ml-26 mb-3 font-12 text-grey">AHORRO MENSUAL</div>
+                  <div class="ml-26 font-32 text-green">200€</div>
+
+                  <div class="text-center mt-30 mb-25">
+                    <ion-button>Quiero instalar placas</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-row>
+      </ion-grid>
+    </ion-grid>
+  </ion-card>
+
+  <ion-card class="card-publicity">
+    <ion-grid>
+      <ion-row class="mt-32">
+        <ion-col size="2">
+          <img
+            src="/assets/img/solar-panel.svg"
+            alt="solar-panel"
+            style="margin-left: 10px"
+          />
+        </ion-col>
+        <ion-col>
+          <ion-label class="col-2">
+            ¿Quieres producir tu <br>
+            propia energía?
+          </ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label class="col-3">
+            ¡Te asesoramos e instalamos placas fotovoltaicas <br>
+             para que disfrutes del autoconsumo!
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>

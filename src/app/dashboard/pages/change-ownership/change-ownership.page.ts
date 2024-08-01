@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RightMenuService } from 'src/app/core/right-menu.service';
 import {
   IonButton,
   IonCard,
@@ -20,12 +21,12 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import { simulationLists } from 'src/app/core/mock/simulationList';
+import { invoices } from 'src/app/core/mock/invoices';
 
 @Component({
-  selector: 'app-simulation-list',
-  templateUrl: './simulation-list.page.html',
-  styleUrls: ['./simulation-list.page.css'],
+  selector: 'app-change-ownership',
+  templateUrl: './change-ownership.page.html',
+  styleUrls: ['./change-ownership.page.css'],
   standalone: true,
   imports: [
     IonCheckbox,
@@ -49,12 +50,12 @@ import { simulationLists } from 'src/app/core/mock/simulationList';
     FormsModule,
   ],
 })
-export class SimulationListPage implements OnInit {
-  public list: any[];
-
-  constructor() {}
+export class ChangeOwnershipPage implements OnInit {
+  public invoices: any[];
+  public rightMenuService = inject(RightMenuService);
 
   ngOnInit() {
-    this.list = simulationLists;
+    this.rightMenuService.set.emit(false);
+    this.invoices = invoices;
   }
 }

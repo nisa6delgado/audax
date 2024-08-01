@@ -23,13 +23,23 @@ export const DASHBOARD_ROUTES: Routes = [
   {
     path: 'supplies',
     loadComponent: () =>
-      import('./pages/simulation-list/simulation-list.page').then(
-        (m) => m.SimulationListPage
+      import('./pages/supplies/supplies.page').then(
+        (m) => m.SuppliesPage
       ),
   },
   {
     path: 'invoices',
     loadComponent: () =>
       import('./pages/invoices/invoices.page').then((m) => m.InvoicesPage),
+  },
+  {
+    path: 'change-ownership',
+    loadComponent: () =>
+      import('./pages/change-ownership/change-ownership.page').then((m) => m.ChangeOwnershipPage),
+  },
+  {
+    path: 'photovoltaic',
+    loadComponent: () =>
+      import('./pages/photovoltaic/photovoltaic.page').then((m) => m.PhotovoltaicPage),
   }
 ];

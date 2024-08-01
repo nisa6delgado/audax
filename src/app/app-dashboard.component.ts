@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RightMenuService } from 'src/app/core/right-menu.service';
 import {
   IonApp,
   IonButton,
@@ -126,7 +127,7 @@ export class AppDashboardComponent {
     },
     {
       title: 'Fotovoltaica',
-      url: '/photovoltaic',
+      url: '/dashboard/photovoltaic',
       icon: 'fa-solid fa-solar-panel',
     },
     {
@@ -144,7 +145,7 @@ export class AppDashboardComponent {
     },
     {
       title: 'Cambio de titular',
-      url: 'change-ownership',
+      url: '/dashboard/change-ownership',
       icon: 'fa-solid fa-pencil',
     },
     {
@@ -201,6 +202,9 @@ export class AppDashboardComponent {
   public oldPassword: string = '';
   public confirmPasswordValue: string = '';
 
+  public rightMenuService = inject(RightMenuService);
+  public showRightMenu:boolean = true;
+
   constructor() {
     addIcons({
       mailOutline,
@@ -219,6 +223,10 @@ export class AppDashboardComponent {
       bookmarkOutline,
       bookmarkSharp,
     });
+
+    this.rightMenuService.set.subscribe((data:any) => {
+      this.showRightMenu = data;
+    });
   }
 
   collapse() {
@@ -228,6 +236,10 @@ export class AppDashboardComponent {
   setOpen(modal: string) {
     if (modal == 'change-password') {
       this.changePasswordModal = true;
+    }
+
+    if (modal == '/dashboard/change-ownership') {
+      window.location.href = '/dashboard/change-ownership';
     }
   }
 

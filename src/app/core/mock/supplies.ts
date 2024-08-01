@@ -1,4 +1,4 @@
-export const simulationLists = [
+export const supplies = [
   {
     icon: 'bulb-outline',
     type: 'LUZ',
